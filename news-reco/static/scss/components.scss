@@ -1,0 +1,93 @@
+
+/*----------------------------------------------------------------------------
+								Forms
+------------------------------------------------------------------------------*/
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="tel"],
+input[type="color"] {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+	outline: 0;
+	min-height: 3.2em;
+	min-width: 76%;
+	margin-left: 12%;
+	padding-left: 10px;
+	border: 1px solid lighten($smoke, 2%);
+	&:focus {
+		border: 1px solid $blue;
+	}
+
+}
+
+/*----------------------------------------------------------------------------
+								Buttons
+------------------------------------------------------------------------------*/
+
+.btn {
+	  display: inline-block;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+  	background-image:none;
+  	border: none;
+  	border-bottom-color: none;
+    -webkit-box-shadow: none;
+	  -moz-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    padding: .5em 2em .55em;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+
+.btn-default {
+	color: $white;
+	border: 1px solid darken($blue, 3%);
+	background: $blue;
+	@include linear-gradient(to top, $blue, lighten($blue, 12%), $fallback: $blue);
+
+	&:hover {
+		background: darken($blue, 5%);
+	    @include linear-gradient(to top, darken($blue, 5%), lighten($blue, 5%), $fallback: $blue);
+	}
+
+}
+
+/*----------------------------------------------------------------------------
+								  Errors
+------------------------------------------------------------------------------*/
+
+span.error {
+	position: absolute;
+	background: lighten($error, 5%);
+	@include linear-gradient(to top, lighten($error, 5%), lighten($error, 10%), $fallback: lighten($error, 5%));
+	border: 1px solid lighten($error, 5%);
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	padding: .4em 2em .3em;
+	color: $white;
+	z-index: 10;
+	text-align: center;
+	font-family: $book;
+	width: 76%;
+	left: 12%;
+	@include font-size(13px);
+}

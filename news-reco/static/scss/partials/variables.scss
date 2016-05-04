@@ -1,0 +1,59 @@
+/*----------------------------------------------
+					Colors
+-----------------------------------------------*/
+
+$blue:                            #3481C3;
+$sky:                             #F8FBFE;
+$white: 						  #FFFFFF;
+$black:                           #111111;
+$black-1:                         #000000;
+$gray-blue:                       #565F70;
+$smoke:							  #D8D8D8;
+$error:                           #ED3736;
+
+/*----------------------------------------------
+				  variables
+-----------------------------------------------*/
+
+$radius:	                      2px;
+
+/*----------------------------------------------
+					Fonts
+-----------------------------------------------*/
+
+@font-face {
+	font-family: Gotham-Narrow-Book;
+	font-weight: regular;
+	src: url('/static/fonts/GothamNarrow-Book.otf');
+}
+
+@font-face {
+	font-family: Gotham-Narrow-Light; 
+	font-weight: light;
+	src: url('/static/fonts/GothamNarrow-Light.otf');
+}
+
+@font-face {
+	font-family: Gotham-Bold;
+	font-weight: bold;
+	src: url('/static/fonts/Gotham-Bold.otf');
+}
+
+@font-face {
+	font-family: Gotham-Narrow-XLight;
+	font-weight: lighter;
+	src: url('/static/fonts/GothamNarrow-XLight.otf');
+}
+
+@font-face {
+	font-family: Gotham-Narrow-Medium;
+	font-weight: medium;
+	src: url('/static/fonts/GothamNarrow-Medium.otf');
+}
+
+$light: Gotham-Narrow-Light, sans-serif;
+$book: Gotham-Narrow-Book, sans-serif;
+$bold: Gotham-Bold, sans-serif;
+$x-light: Gotham-Narrow-XLight, sans-serif;
+$medium: Gotham-Narrow-Medium, sans-serif;
+

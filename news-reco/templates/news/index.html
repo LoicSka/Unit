@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% load staticfiles %}
+		<script type="text/javascript" src="{% static 'js/shared/angular.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/shared/angular-route.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/shared/angular-cookies.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/shared/angular-resource.min.js' %}"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/application.css' %}">
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		<title>News</title>
+	</head>
+	<body ng-app="NewsApp">
+		<div ng-view></div>
+		<!-- Modules -->
+		<script type="text/javascript" src="{% static 'js/shared/jquery.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+		<!-- Controllers -->
+		<script type="text/javascript" src="{% static 'js/controllers/ArticleListController.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/controllers/ArticleDetailController.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/controllers/UserController.js' %}"></script>
+		<!-- Services -->
+		<script type="text/javascript" src="{% static 'js/services/ArticleData.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/services/UserData.js' %}"></script>
+		<!-- Directives -->
+		<script type="text/javascript" src="{% static 'js/directives.js' %}"></script>
+	</body>
+</html>

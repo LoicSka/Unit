@@ -12,11 +12,90 @@
 		<title>News</title>
 	</head>
 	<body ng-app="NewsApp">
+		<!-- Header navigation -->
+		<header class="header">
+			<!-- .logo-group -->
+			<span class="logo-group">
+				<img src="static/img/logo.svg">
+			</span> <!-- .logo-group end -->
+			<!-- .left-side -->
+			<ul ng-hide="[[!loggedIn]]" id="left-side" class="has-no-children left-side hide">
+				<li class="active"><a href="#/">Home</a></li>
+				<li>
+					<a href="#/">
+						Trending
+						<span class="icon-tag">
+							<img src="static/img/fire-flame.svg">
+						</span>
+					</a>
+			    </li>
+				<li><a href="#/">New</a></li>
+				<!-- Header bar Search field -->
+				<li id="search-field">
+					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+						 viewBox="0 0 20 20" style="enable-background:new 0 0 20 20;" xml:space="preserve">
+					<style type="text/css">
+						.st90{fill:#CCCCCC;}
+					</style>
+					<g id="XMLID_14_">
+						<g id="search">
+							<path id="XMLID_15_" class="st90" d="M7.7,13.9l0-0.9l0.3-0.3c1.2,1,2.9,1.6,4.6,1.5c3.9-0.2,6.8-3.4,6.6-7.3s-3.4-6.8-7.3-6.6
+								S5,3.7,5.2,7.6C5.3,9.3,6,10.9,7.1,12l-0.3,0.3l-0.9,0L0.9,18l1.7,1.5L7.7,13.9z M7.4,7.5c-0.1-2.7,1.9-4.9,4.6-5s4.9,1.9,5,4.6
+								c0.1,2.7-1.9,4.9-4.6,5S7.5,10.1,7.4,7.5z"/>
+						</g>
+					</g>
+					</svg>
+					<input id='srch' type="search"  placeholder="Search articles, stories, news,..." name="search" >
+				</li>
+			</ul><!-- .left-side end -->
+
+			<div ng-hide="[[!loggedIn]]" ng-click="triggerNav()" class="trigger-group">
+				<span id='nav-trigger'></span>
+			</div>
+			<!-- .right-side -->
+			<ul class="right-side has-no-children">
+				<li ng-show="[[registering]]">
+					Have an account?
+					<a class="underlined" href="#/login">Sign in.</a>
+				</li>
+				<li ng-show="[[logging]]">
+					No account?
+					<a class="underlined" href="#/welcome">Sign up.</a>
+				</li>
+				<li ng-hide="[[!loggedIn]]" class="has-children" >
+					<span>
+						<svg version="1.1" id="settings" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+						 viewBox="-291 566 512 512" style="enable-background:new -291 566 512 512;" xml:space="preserve">
+						<style type="text/css">
+							.st2{fill:#565F70;}
+						</style>
+						<path class="st2" d="M152.9,744.8c-9-22.1-3.2-47.9,14.5-64.2c0,0,0,0,0,0c-16.2-23.1-36.2-43.3-59.2-59.6c0,0-0.1,0.1-0.1,0.1
+							c-15.5,17.1-43.3,23.5-64.7,14.5c-22.3-9.4-36.4-32-35.1-56.3c0-0.1,0-0.1,0-0.2c-13.9-2.5-28.3-3.7-42.9-3.7c-14,0-27.7,1.2-41,3.4
+							c0,0,0,0,0,0c0.8,24.1-13.4,46.3-35.5,55.4c-21.2,8.7-48.8,2.4-64.2-14.6c0,0,0,0,0,0c-23.3,16.2-43.7,36.4-60.1,59.5
+							c0,0,0.1,0.1,0.1,0.1c18.1,16.4,23.9,42.4,14.5,64.8c-9,21.3-31.1,35.1-56.5,35.1c0,0,0,0,0,0c-2.4,13.9-3.7,28.3-3.7,42.9
+							c0,14.1,1.2,28,3.5,41.4c0.7,0.1,1.5,0.2,2.2,0.2c22.6-0.6,44.3,13.4,53.4,35.6c9.1,22.1,3.2,47.9-14.5,64.2c0,0,0,0,0,0
+							c16.2,23.1,36.2,43.3,59.2,59.6c0,0,0.1-0.1,0.1-0.1c15.5-17.2,43.3-23.5,64.7-14.6c22.4,9.4,36.5,32,35.1,56.3c0,0.1,0,0.1,0,0.2
+							c13.9,2.5,28.3,3.7,43,3.7c14,0,27.7-1.2,41-3.4c0,0,0,0,0,0c-0.9-24.1,13.4-46.3,35.5-55.3c21.4-8.7,48.8-2.3,64.3,14.6
+							c0,0,0,0,0,0c23.3-16.2,43.7-36.4,60.1-59.5c0,0-0.1-0.1-0.1-0.1c-18.1-16.4-23.9-42.4-14.5-64.7c8.8-21.1,30.2-35.2,53.1-35.2
+							l3.2,0.1c0.1,0,0.1,0,0.2,0c2.4-13.9,3.7-28.3,3.7-42.9c0-14.1-1.2-28-3.5-41.5c-0.6-0.1-1.2-0.1-1.8-0.1
+							C182.9,780.4,161.7,766.4,152.9,744.8z M-34.2,909.1c-47.7,0-86.6-38.8-86.6-86.6c0-47.7,38.8-86.6,86.6-86.6
+							c47.7,0,86.6,38.8,86.6,86.6C52.4,870.3,13.6,909.1-34.2,909.1z"/>
+						</svg>
+					</span>
+					<ul>
+						<li ng-click=signOut() class="child top"><span class="trigger">Logout</span></li>
+						<!-- <li class="child"><span class="trigger">Do somn</span></li> -->
+					</ul>
+					
+				</li>
+			</ul><!-- .right-side end -->
+
+		</header>
+		<!-- Header navigation end -->
 		<div ng-view></div>
 		<!-- Modules -->
 		<script type="text/javascript" src="{% static 'js/shared/jquery.min.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/app.js' %}"></script>
-		<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 		<!-- Controllers -->
 		<script type="text/javascript" src="{% static 'js/controllers/ArticleListController.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/controllers/ArticleDetailController.js' %}"></script>
@@ -26,5 +105,9 @@
 		<script type="text/javascript" src="{% static 'js/services/UserData.js' %}"></script>
 		<!-- Directives -->
 		<script type="text/javascript" src="{% static 'js/directives.js' %}"></script>
+    <!-- filters -->
+		<script type="text/javascript" src="{% static 'js/filters.js' %}"></script>
+		<!-- main.js -->
+		<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 	</body>
 </html>

@@ -13,6 +13,9 @@ def upload_location(instance, filename):
 class Category(models.Model):
 	name = models.CharField(max_length=128)
 
+	def __unicode__(self):
+		return self.name
+
 	def __str__(self):
 		return self.name
 
@@ -31,6 +34,7 @@ class Article(models.Model):
 	publication_date = models.DateTimeField()
 	visible = models.BooleanField(default=False)
 	tags = models.TextField(default="all")
+	likes = models.IntegerField(default=0)
 
 	def __unicode__(self):
 		return self.title

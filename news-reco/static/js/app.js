@@ -1,4 +1,6 @@
 var app = angular.module('NewsApp', ['ngResource', 'ngRoute', 'ngCookies']);
+// var SOURCE = 'http://7dc36e61.ngrok.io';
+var SOURCE = 'http://127.0.0.1:8000';
 
 app.config(
 	[
@@ -13,7 +15,6 @@ app.config(
 			$resourceProvider.defaults.stripTrailingSlashes = false;
 			$interpolateProvider.startSymbol('[[');
     		$interpolateProvider.endSymbol(']]');
-    		// $locationProvider.html5Mode(true);
     		$httpProvider.defaults.withCredentials = true;
     		$httpProvider.defaults.xsrfCookieName = 'csrftoken';
 			$httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -46,11 +47,19 @@ app.config(
 			.when('/welcome', {
 				controller: 'UserController',
 				templateUrl: 'static/views/register.html'})
+			.when('/categories/:category',{
+				controller: 'ArticleListController',
+				templateUrl: 'static/views/articles.html',
+				authenticated: true})
+			
 			.otherwise({
 				redirectTo: '/404'});
 		}
 	]);
-app.run(['$rootScope', '$location', 'userData', function($rootScope, $location, userData){
+app.run(['$rootScope', '$location', 'userData', 'articleData', '$cookies', function($rootScope, $location, userData, articleData, $cookies){
+	$rootScope.loggedIn = userData.getAuthStatus();
+	$rootScope.logging = $location.url() == "/login";
+	$rootScope.registering = $location.url() == "/welcome";
 	$rootScope.$on("$routeChangeStart",
 		function (event, next, current) {
 			if (next.$$route.authenticated) {
@@ -58,12 +67,30 @@ app.run(['$rootScope', '$location', 'userData', function($rootScope, $location, 
 					$location.path('/login');
 				}
 			}
-
 			if (next.$$route.originalPath == '/login') {
-				console.log('loginPage');
 				if (userData.getAuthStatus()) {
 					$location.path(current.$$route.originalPath);
 				}
 			}
 		});
+	$rootScope.signOut = function() {
+		userData.logout();
+		$location.path('/login');
+		location.reload();
+	};
+
+	$rootScope.like = function(a,b,c) {
+		articleData.likeArticle(a,b,c).then(
+			function(article) {
+				$('#' + article.id.toString()).html(article.likes);
+			}
+		);
+	};
+
+	if (userData.getAuthStatus()) {
+		$rootScope.currentUser = $cookies.getObject('auth');
+	} else {
+		$rootScope.currentUser = false;
+	}
+
 }]);

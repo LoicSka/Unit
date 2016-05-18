@@ -1,4 +1,376 @@
-<div ng-repeat="article in articles">
-	<a href="#/stories/[[article.slug]]">Read story</a>
-	<img src="[[article.cover]]">
+<div class="articles-container">
+	<!-- subnav-start -->
+	<ul class="sub-nav">
+		<li>
+			<a href="#/categories/technology">
+				<img src="static/img/tech.svg">
+				<span class="hide-on-small">Technology</span>
+		    </a>
+		</li>
+		<li>
+			<a href="#/categories/news">
+				<img src="static/img/news.svg">
+				<span class="hide-on-small">News</span>
+		    </a>
+		</li>
+		<li>
+			<a href="#/categories/entertainment">
+				<img src="static/img/ent.svg">
+				<span class="hide-on-small">Entertainment</span>
+		    </a>
+		</li>
+		<li>
+			<a href="#/categories/sports">
+				<img src="static/img/sports.svg">
+				<span class="hide-on-small">Sports</span>
+		    </a>
+		</li>
+		<li>
+			<a href="#/categories/science">
+				<img src="static/img/science.svg">
+				<span class="hide-on-small">Science</span>
+		    </a>
+		</li>
+		<li>
+			<a href="#/categories/society">
+				<img src="static/img/society.svg">
+				<span class="hide-on-small">Society</span>
+		    </a>
+		</li>
+	</ul>
+	<!-- subnav-end -->
+	<div class="header-article">
+		<img src="[[articles[9].cover]]">
+		<div class="header-text">	
+			<a href="#/stories/[[ articles[10].slug ]]">
+				<h1>[[ articles[9].title ]]</h1>
+				<p class="category">[[ articles[9].category ]]</p>
+				<p class="summary">[[ articles[9].content | truncate:true:170]]</p>
+				<ul class="social-links">
+					<li>
+						<a href="/#">
+							<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+							 viewBox="-291 566 512 512" style="enable-background:new -291 566 512 512;" xml:space="preserve">
+							<style type="text/css">
+								.st23{fill:none;stroke:#4c4c4c;stroke-width:20}
+							</style>
+							<g id="XMLID_243_">
+								<path id="Facebook_4_" class="st23" d="M-99.5,673c0,12.3,0,66.9,0,66.9h-49.1v81.9h49.1v243.3H1.3V821.9h67.6
+									c0,0,6.3-39.3,9.3-82.2c-8.8,0-76.7,0-76.7,0s0-47.7,0-56c0-8.4,11-19.7,21.9-19.7c10.9,0,33.7,0,55,0c0-11.1,0-49.7,0-85.2
+									c-28.4,0-60.5,0-74.7,0C-102,578.8-99.5,660.8-99.5,673z"/>
+							</g>
+							</svg>
+						</a>
+					</li>
+					<li>
+						<a href="/#">
+							<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+							 viewBox="-291 566 512 512" style="enable-background:new -291 566 512 512;" xml:space="preserve">
+							<style type="text/css">
+								.st21{fill:none;stroke:#4c4c4c;stroke-width:20}
+							</style>
+							<g id="XMLID_240_">
+								<g id="XMLID_241_">
+									<path id="XMLID_242_" class="st21" d="M199.4,676.6c-17.3,7.6-35.8,12.8-55.2,15.1c19.9-11.9,35.1-30.8,42.3-53.2
+										c-18.6,11-39.2,19-61.1,23.4c-17.5-18.7-42.5-30.4-70.2-30.4C2,631.6-41,674.6-41,727.7c0,7.5,0.8,14.9,2.5,21.9
+										c-79.9-4-150.8-42.3-198.2-100.5c-8.3,14.2-13,30.7-13,48.3c0,33.4,17,62.8,42.8,80c-15.8-0.5-30.6-4.9-43.6-12.1v1.2
+										c0,46.6,33.2,85.5,77.1,94.3c-8.1,2.2-16.6,3.4-25.3,3.4c-6.2,0-12.2-0.6-18.1-1.8c12.2,38.2,47.8,66,89.8,66.8
+										c-32.9,25.8-74.4,41.1-119.5,41.1c-7.8,0-15.4-0.5-22.9-1.3c42.6,27.3,93.1,43.3,147.4,43.3c176.9,0,273.6-146.6,273.6-273.6
+										l-0.3-12.5C170.2,712.8,186.6,695.9,199.4,676.6z"/>
+								</g>
+							</g>
+							</svg>
+						</a>
+					</li>
+					<li>
+						<a href="/#">
+							<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 viewBox="-291 566 512 512" style="enable-background:new -291 566 512 512;" xml:space="preserve">
+							<style type="text/css">
+								.st20{fill:none;stroke:#4c4c4c;stroke-width:20}
+							</style>
+							<g id="XMLID_238_">
+								<path id="XMLID_239_" class="st20" d="M39,981.1c-13.7,0-25.7-3.2-35.9-9.5c-8-4.7-13.3-10.9-16-18.4c-2.9-7.4-4.3-25-4.3-52.8v-121
+									H94.6v-74H-17.2V586.1h-67.3c-3.1,24.2-8.6,44.2-16.6,60.2c-8,15.8-18.5,29.3-31.6,40.5c-13.1,11.1-29,19.7-47.6,25.8v66.6h52.2
+									v165.5c0,21.9,2.3,38.4,6.8,49.4c4.3,11.1,12.4,21.8,24.3,32.3c12.3,10.2,26.4,17.9,42.4,23c16.6,5.5,35.6,8.3,57.1,8.3
+									c19.7,0,37.4-2,53.1-5.8c15.6-3.5,33.8-10.1,54.7-20v-74.3C86.7,973.3,63,981.1,39,981.1z"/>
+							</g>
+							</svg>
+						</a>
+					</li>
+					<li>
+						<span ng-click="like(articles[10].slug,currentUser.id,1)">
+							<svg version="1.1" class="heart-icon" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 viewBox="-329 566 591 512" style="enable-background:new -329 566 591 512;" xml:space="preserve">
+							<style type="text/css">
+								.st10{fill:none;stroke:#4c4c4c;stroke-width:20}
+							</style>
+							<g id="XMLID_244_">
+								<g id="Icons_3_">
+									<path id="XMLID_245_" class="st10" d="M243.2,736.4c0-83-67.3-150.2-150.2-150.2c-54.2,0-101.5,28.8-127.9,71.8
+										c-26.4-43-73.8-71.8-127.9-71.8c-83,0-150.2,67.3-150.2,150.2c0,45.2,20,85.6,51.6,113.1l212.9,212.9c3.6,3.6,8.6,5.7,13.7,5.7
+										s10.1-2,13.7-5.7l212.9-212.9C223.2,822,243.2,781.6,243.2,736.4z"/>
+								</g>
+							</g>
+							</svg>
+						</span>
+					</li>
+					<li id="[[articles[10].id]]">[[articles[10].likes]]</li>
+				</ul>
+			</a>
+		</div>
+	</div>
+	<div ng-repeat="article in articles | slice:0:9 " ng-if="$index % 3 == 0" class="row article-list">
+		<div class="col-lg-4">
+			<a class="article-link" href="#/stories/[[ articles[$index].slug ]]">
+				<div class="img-container">
+					<img src="[[articles[$index].cover]]">
+				</div>
+				<div class="text-container">
+					<h3 class="title">[[ articles[$index].title ]]</h3>
+					<p class="category">[[ articles[$index].category  ]]</p>
+					<p class="summary">[[ articles[$index].content | truncate:true:150]]</p>
+					<ul class="social-links">
+						<li>
+							<a href="/#">
+								<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 viewBox="-291 566 512 512" style="enable-background:new -291 566 512 512;" xml:space="preserve">
+								<style type="text/css">
+									.st23{fill:none;stroke:#4c4c4c;stroke-width:20}
+								</style>
+								<g id="XMLID_243_">
+									<path id="Facebook_4_" class="st23" d="M-99.5,673c0,12.3,0,66.9,0,66.9h-49.1v81.9h49.1v243.3H1.3V821.9h67.6
+										c0,0,6.3-39.3,9.3-82.2c-8.8,0-76.7,0-76.7,0s0-47.7,0-56c0-8.4,11-19.7,21.9-19.7c10.9,0,33.7,0,55,0c0-11.1,0-49.7,0-85.2
+										c-28.4,0-60.5,0-74.7,0C-102,578.8-99.5,660.8-99.5,673z"/>
+								</g>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a href="/#">
+								<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 viewBox="-291 566 512 512" style="enable-background:new -291 566 512 512;" xml:space="preserve">
+								<style type="text/css">
+									.st21{fill:none;stroke:#4c4c4c;stroke-width:20}
+								</style>
+								<g id="XMLID_240_">
+									<g id="XMLID_241_">
+										<path id="XMLID_242_" class="st21" d="M199.4,676.6c-17.3,7.6-35.8,12.8-55.2,15.1c19.9-11.9,35.1-30.8,42.3-53.2
+											c-18.6,11-39.2,19-61.1,23.4c-17.5-18.7-42.5-30.4-70.2-30.4C2,631.6-41,674.6-41,727.7c0,7.5,0.8,14.9,2.5,21.9
+											c-79.9-4-150.8-42.3-198.2-100.5c-8.3,14.2-13,30.7-13,48.3c0,33.4,17,62.8,42.8,80c-15.8-0.5-30.6-4.9-43.6-12.1v1.2
+											c0,46.6,33.2,85.5,77.1,94.3c-8.1,2.2-16.6,3.4-25.3,3.4c-6.2,0-12.2-0.6-18.1-1.8c12.2,38.2,47.8,66,89.8,66.8
+											c-32.9,25.8-74.4,41.1-119.5,41.1c-7.8,0-15.4-0.5-22.9-1.3c42.6,27.3,93.1,43.3,147.4,43.3c176.9,0,273.6-146.6,273.6-273.6
+											l-0.3-12.5C170.2,712.8,186.6,695.9,199.4,676.6z"/>
+									</g>
+								</g>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a href="/#">
+								<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+									 viewBox="-291 566 512 512" style="enable-background:new -291 566 512 512;" xml:space="preserve">
+								<style type="text/css">
+									.st20{fill:none;stroke:#4c4c4c;stroke-width:20}
+								</style>
+								<g id="XMLID_238_">
+									<path id="XMLID_239_" class="st20" d="M39,981.1c-13.7,0-25.7-3.2-35.9-9.5c-8-4.7-13.3-10.9-16-18.4c-2.9-7.4-4.3-25-4.3-52.8v-121
+										H94.6v-74H-17.2V586.1h-67.3c-3.1,24.2-8.6,44.2-16.6,60.2c-8,15.8-18.5,29.3-31.6,40.5c-13.1,11.1-29,19.7-47.6,25.8v66.6h52.2
+										v165.5c0,21.9,2.3,38.4,6.8,49.4c4.3,11.1,12.4,21.8,24.3,32.3c12.3,10.2,26.4,17.9,42.4,23c16.6,5.5,35.6,8.3,57.1,8.3
+										c19.7,0,37.4-2,53.1-5.8c15.6-3.5,33.8-10.1,54.7-20v-74.3C86.7,973.3,63,981.1,39,981.1z"/>
+								</g>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<span ng-click="like(articles[$index].slug, currentUser.id,1)">
+								<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+									 viewBox="-329 566 591 512" style="enable-background:new -329 566 591 512;" xml:space="preserve">
+								<style type="text/css">
+									.st10{fill:none;stroke:#4c4c4c;stroke-width:20}
+								</style>
+								<g id="XMLID_244_">
+									<g id="Icons_3_">
+										<path id="XMLID_245_" class="st10" d="M243.2,736.4c0-83-67.3-150.2-150.2-150.2c-54.2,0-101.5,28.8-127.9,71.8
+											c-26.4-43-73.8-71.8-127.9-71.8c-83,0-150.2,67.3-150.2,150.2c0,45.2,20,85.6,51.6,113.1l212.9,212.9c3.6,3.6,8.6,5.7,13.7,5.7
+											s10.1-2,13.7-5.7l212.9-212.9C223.2,822,243.2,781.6,243.2,736.4z"/>
+									</g>
+								</g>
+								</svg>
+							</span>
+						</li>
+						<li id="[[articles[$index].id]]">[[articles[$index].likes]]</li>
+					</ul>
+				</div>
+			</a>
+		</div>
+		<div class="col-lg-4">
+			<a class="article-link" href="#/stories/[[ articles[$index + 1 ].slug ]]">
+				<div class="img-container">
+					<img src="[[articles[$index + 1].cover]]">
+				</div>
+				<div class="text-container">
+					<h3 class="title">[[ articles[$index + 1].title ]]</h3>
+					<p class="category">[[ articles[$index+ 1].category  ]]</p>
+					<p class="summary">[[ articles[$index + 1].content | truncate:true:150]]</p>
+					<ul class="social-links">
+						<li>
+							<a href="/#">
+								<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 viewBox="-291 566 512 512" style="enable-background:new -291 566 512 512;" xml:space="preserve">
+								<style type="text/css">
+									.st23{fill:none;stroke:#4c4c4c;stroke-width:20}
+								</style>
+								<g id="XMLID_243_">
+									<path id="Facebook_4_" class="st23" d="M-99.5,673c0,12.3,0,66.9,0,66.9h-49.1v81.9h49.1v243.3H1.3V821.9h67.6
+										c0,0,6.3-39.3,9.3-82.2c-8.8,0-76.7,0-76.7,0s0-47.7,0-56c0-8.4,11-19.7,21.9-19.7c10.9,0,33.7,0,55,0c0-11.1,0-49.7,0-85.2
+										c-28.4,0-60.5,0-74.7,0C-102,578.8-99.5,660.8-99.5,673z"/>
+								</g>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a href="/#">
+								<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 viewBox="-291 566 512 512" style="enable-background:new -291 566 512 512;" xml:space="preserve">
+								<style type="text/css">
+									.st21{fill:none;stroke:#4c4c4c;stroke-width:20}
+								</style>
+								<g id="XMLID_240_">
+									<g id="XMLID_241_">
+										<path id="XMLID_242_" class="st21" d="M199.4,676.6c-17.3,7.6-35.8,12.8-55.2,15.1c19.9-11.9,35.1-30.8,42.3-53.2
+											c-18.6,11-39.2,19-61.1,23.4c-17.5-18.7-42.5-30.4-70.2-30.4C2,631.6-41,674.6-41,727.7c0,7.5,0.8,14.9,2.5,21.9
+											c-79.9-4-150.8-42.3-198.2-100.5c-8.3,14.2-13,30.7-13,48.3c0,33.4,17,62.8,42.8,80c-15.8-0.5-30.6-4.9-43.6-12.1v1.2
+											c0,46.6,33.2,85.5,77.1,94.3c-8.1,2.2-16.6,3.4-25.3,3.4c-6.2,0-12.2-0.6-18.1-1.8c12.2,38.2,47.8,66,89.8,66.8
+											c-32.9,25.8-74.4,41.1-119.5,41.1c-7.8,0-15.4-0.5-22.9-1.3c42.6,27.3,93.1,43.3,147.4,43.3c176.9,0,273.6-146.6,273.6-273.6
+											l-0.3-12.5C170.2,712.8,186.6,695.9,199.4,676.6z"/>
+									</g>
+								</g>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a href="/#">
+								<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+									 viewBox="-291 566 512 512" style="enable-background:new -291 566 512 512;" xml:space="preserve">
+								<style type="text/css">
+									.st20{fill:none;stroke:#4c4c4c;stroke-width:20}
+								</style>
+								<g id="XMLID_238_">
+									<path id="XMLID_239_" class="st20" d="M39,981.1c-13.7,0-25.7-3.2-35.9-9.5c-8-4.7-13.3-10.9-16-18.4c-2.9-7.4-4.3-25-4.3-52.8v-121
+										H94.6v-74H-17.2V586.1h-67.3c-3.1,24.2-8.6,44.2-16.6,60.2c-8,15.8-18.5,29.3-31.6,40.5c-13.1,11.1-29,19.7-47.6,25.8v66.6h52.2
+										v165.5c0,21.9,2.3,38.4,6.8,49.4c4.3,11.1,12.4,21.8,24.3,32.3c12.3,10.2,26.4,17.9,42.4,23c16.6,5.5,35.6,8.3,57.1,8.3
+										c19.7,0,37.4-2,53.1-5.8c15.6-3.5,33.8-10.1,54.7-20v-74.3C86.7,973.3,63,981.1,39,981.1z"/>
+								</g>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<span ng-click="like(articles[$index + 1].slug, currentUser.id,1)">
+								<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+									 viewBox="-329 566 591 512" style="enable-background:new -329 566 591 512;" xml:space="preserve">
+								<style type="text/css">
+									.st11{fill:none;stroke:#4c4c4c;stroke-width:20}
+								</style>
+								<g id="XMLID_244_">
+									<g id="Icons_3_">
+										<path id="XMLID_245_" class="st10" d="M243.2,736.4c0-83-67.3-150.2-150.2-150.2c-54.2,0-101.5,28.8-127.9,71.8
+											c-26.4-43-73.8-71.8-127.9-71.8c-83,0-150.2,67.3-150.2,150.2c0,45.2,20,85.6,51.6,113.1l212.9,212.9c3.6,3.6,8.6,5.7,13.7,5.7
+											s10.1-2,13.7-5.7l212.9-212.9C223.2,822,243.2,781.6,243.2,736.4z"/>
+									</g>
+								</g>
+								</svg>
+							</span>
+						</li>
+						<li id="[[articles[$index + 1].id]]">[[articles[$index + 1].likes]]</li>
+					</ul>
+				</div>
+			</a>
+		</div>
+		<div class="col-lg-4">
+			<a class="article-link" href="#/stories/[[ articles[$index + 2 ].slug ]]">
+				<div class="img-container">
+					<img src="[[articles[$index + 2].cover]]">
+				</div>
+				<div class="text-container">
+					<h3 class="title">[[ articles[$index + 2].title ]]</h3>
+					<p class="category">[[ articles[$index + 2].category  ]]</p>
+					<p class="summary">[[ articles[$index + 2].content | truncate:true:150]]</p>
+					<ul class="social-links">
+						<li>
+							<a href="/#">
+								<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 viewBox="-291 566 512 512" style="enable-background:new -291 566 512 512;" xml:space="preserve">
+								<style type="text/css">
+									.st23{fill:none;stroke:#4c4c4c;stroke-width:20}
+								</style>
+								<g id="XMLID_243_">
+									<path id="Facebook_4_" class="st23" d="M-99.5,673c0,12.3,0,66.9,0,66.9h-49.1v81.9h49.1v243.3H1.3V821.9h67.6
+										c0,0,6.3-39.3,9.3-82.2c-8.8,0-76.7,0-76.7,0s0-47.7,0-56c0-8.4,11-19.7,21.9-19.7c10.9,0,33.7,0,55,0c0-11.1,0-49.7,0-85.2
+										c-28.4,0-60.5,0-74.7,0C-102,578.8-99.5,660.8-99.5,673z"/>
+								</g>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a href="/#">
+								<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 viewBox="-291 566 512 512" style="enable-background:new -291 566 512 512;" xml:space="preserve">
+								<style type="text/css">
+									.st21{fill:none;stroke:#4c4c4c;stroke-width:20}
+								</style>
+								<g id="XMLID_240_">
+									<g id="XMLID_241_">
+										<path id="XMLID_242_" class="st21" d="M199.4,676.6c-17.3,7.6-35.8,12.8-55.2,15.1c19.9-11.9,35.1-30.8,42.3-53.2
+											c-18.6,11-39.2,19-61.1,23.4c-17.5-18.7-42.5-30.4-70.2-30.4C2,631.6-41,674.6-41,727.7c0,7.5,0.8,14.9,2.5,21.9
+											c-79.9-4-150.8-42.3-198.2-100.5c-8.3,14.2-13,30.7-13,48.3c0,33.4,17,62.8,42.8,80c-15.8-0.5-30.6-4.9-43.6-12.1v1.2
+											c0,46.6,33.2,85.5,77.1,94.3c-8.1,2.2-16.6,3.4-25.3,3.4c-6.2,0-12.2-0.6-18.1-1.8c12.2,38.2,47.8,66,89.8,66.8
+											c-32.9,25.8-74.4,41.1-119.5,41.1c-7.8,0-15.4-0.5-22.9-1.3c42.6,27.3,93.1,43.3,147.4,43.3c176.9,0,273.6-146.6,273.6-273.6
+											l-0.3-12.5C170.2,712.8,186.6,695.9,199.4,676.6z"/>
+									</g>
+								</g>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a href="/#">
+								<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+									 viewBox="-291 566 512 512" style="enable-background:new -291 566 512 512;" xml:space="preserve">
+								<style type="text/css">
+									.st20{fill:none;stroke:#4c4c4c;stroke-width:20}
+								</style>
+								<g id="XMLID_238_">
+									<path id="XMLID_239_" class="st20" d="M39,981.1c-13.7,0-25.7-3.2-35.9-9.5c-8-4.7-13.3-10.9-16-18.4c-2.9-7.4-4.3-25-4.3-52.8v-121
+										H94.6v-74H-17.2V586.1h-67.3c-3.1,24.2-8.6,44.2-16.6,60.2c-8,15.8-18.5,29.3-31.6,40.5c-13.1,11.1-29,19.7-47.6,25.8v66.6h52.2
+										v165.5c0,21.9,2.3,38.4,6.8,49.4c4.3,11.1,12.4,21.8,24.3,32.3c12.3,10.2,26.4,17.9,42.4,23c16.6,5.5,35.6,8.3,57.1,8.3
+										c19.7,0,37.4-2,53.1-5.8c15.6-3.5,33.8-10.1,54.7-20v-74.3C86.7,973.3,63,981.1,39,981.1z"/>
+								</g>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<span ng-click="like(articles[$index + 2].slug, currentUser.id,1)">
+								<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+									 viewBox="-329 566 591 512" style="enable-background:new -329 566 591 512;" xml:space="preserve">
+								<style type="text/css">
+									.st10{fill:none;stroke:#4c4c4c;stroke-width:20}
+								</style>
+								<g id="XMLID_244_">
+									<g id="Icons_3_">
+										<path id="XMLID_245_" class="st10" d="M243.2,736.4c0-83-67.3-150.2-150.2-150.2c-54.2,0-101.5,28.8-127.9,71.8
+											c-26.4-43-73.8-71.8-127.9-71.8c-83,0-150.2,67.3-150.2,150.2c0,45.2,20,85.6,51.6,113.1l212.9,212.9c3.6,3.6,8.6,5.7,13.7,5.7
+											s10.1-2,13.7-5.7l212.9-212.9C223.2,822,243.2,781.6,243.2,736.4z"/>
+									</g>
+								</g>
+								</svg>
+							</span>
+						</li>
+						<li id="[[articles[$index + 2].id]]">[[articles[$index + 2].likes]]</li>
+					</ul>
+				</div>
+			</a>
+		</div>
+	</div>
+	<!-- <hr /> -->
 </div>
+

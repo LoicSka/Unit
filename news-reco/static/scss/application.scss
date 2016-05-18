@@ -29,6 +29,9 @@ body {
 	height: 100vh;
 	min-height: 700px;
 }
+a {
+	text-decoration: none;
+}
 
 /*---------------------------------------------------------------------------
 									Header
@@ -48,7 +51,7 @@ header.header {
     -moz-box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.5);
     box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.5);
 
-	ul {
+	ul.has-no-children {
 		display: inline-block;
 		list-style: none;
 
@@ -81,7 +84,7 @@ header.header {
 				}
 
 				&.show {
-					top: 65px;
+					top: 64px;
 					left: -40px;
 					@include transform(translateX(0px));
 				}
@@ -92,6 +95,30 @@ header.header {
 					@include transform(translateX(-140px));
 				}
 
+			}
+
+			@include MQ(M) {
+				position: relative;
+				top: 0;
+				left: -40px;
+
+				li {
+					min-width: 5%;
+					height: 40px;
+					display: inline-block;
+					padding-right: 10px;
+					border: none;
+				}
+
+				&.show {
+					top: 0;
+				}
+
+				&.hide {
+					top: 0;
+					left: -40px;
+					@include transform(translateX(0px));
+				}
 			}
 
 			@include MQ(L) {
@@ -142,7 +169,11 @@ header.header {
 			}
 		}
 	}
-
+  span.icon-tag {
+		img {
+			width: 15px;
+		}
+	}
 	span.logo-group {
 		display: inline-block;
 		float: left;
@@ -153,14 +184,15 @@ header.header {
 		@include MQ(S) {
 			margin-left: 20px;
 		}
-
+		@include MQ(M) {
+			margin-left: 40px;
+		}
 		@include MQ(L) {
 			margin-left: 40px;
 		}
 		img {
 			position: absolute;
 			@include center(xy);
-			// height: 27px;
 			width: 20px;
 		}
 	}
@@ -203,7 +235,9 @@ header.header {
 		@include MQ(S) {
 			display: block;
 		}
-
+		@include MQ(M) {
+			display: none;
+		}
 		@include MQ(L) {
 			display: none;
 		}
@@ -218,11 +252,17 @@ header.header {
 
 		@include MQ(S) {
 			margin-right: 0;
-			li {
-				position: absolute;
-				top: 15px;
-				right: 5em;
+			ul.has-no-children {
+				li {
+					position: absolute;
+					top: 15px;
+					right: 5em;
+				}
 			}
+		}
+
+		@include MQ(M) {
+			margin-right: 80px;
 		}
 
 		@include MQ(L) {
@@ -289,6 +329,69 @@ header.header {
 	}
 
 }
+li.has-children {
+	position: relative;
+	cursor: pointer;
+	min-height: 100px;
+
+	ul {
+		position: absolute;
+		left: -55px;
+		list-style: none;
+		top: 50px;
+		width: 150px;
+		background-color: $white;
+		-webkit-box-shadow: -1px 2px 3px 2px rgba(0,0,0,0.09);
+		-moz-box-shadow: -1px 2px 3px 2px rgba(0,0,0,0.09);
+		box-shadow: -1px 2px 3px 2px rgba(0,0,0,0.09);
+		overflow: hidden;
+		border-radius: $radius;
+		opacity: 0;
+		display: none;
+		visibility: hidden;
+
+		li {
+			width:150px;
+			text-align: left;
+			min-height: 40px;
+			position: relative;
+			display: block;
+			background-color: $white;
+			border-top: 1px solid lighten($smoke, 5%);
+			@include transform(translateX(-40px));
+			span.trigger {
+				position: absolute;
+				@include center(xy);
+				
+			}
+
+			&:hover {
+				color: $blue;
+		    }
+
+			&.top {
+				border-top: none;
+			}
+		}
+	}
+
+	&:hover {
+		ul {
+			opacity: 1;
+			display: block;
+			visibility: visible;
+		}
+    }
+
+	svg {
+		@include transform(translateX(-10px));
+		@include transform(translateY(2px));
+		&#settings {
+			width: 15px;
+		}
+	}
+
+}
 
 /*----------------------------------------------------------------------------
 								Sessions box
@@ -338,6 +441,24 @@ div.sessions-box {
 			}
 		}
 
+		@include MQ(M) {
+			a {
+				float: left;
+				display: inline-block;
+				margin-top: 0;
+				margin-bottom: 0;
+				width: auto;
+
+			}
+			button {
+				float: right;
+				display: inline-block;
+				min-width: 30px;
+				margin-right: 12%;
+				padding: .5em 2em .55em;
+			}
+		}
+
 		@include MQ(L) {
 			a {
 				float: left;
@@ -360,7 +481,14 @@ div.sessions-box {
 	@include MQ(S) {
 		width: 90%;
 	}
+	@include MQ(L) {
+		width: 80%;
 
+		.box-left {
+			padding: 0;
+			border-right: 1px solid lighten($smoke, 5%);
+		}
+	}
 	@include MQ(L) {
 		width: 80%;
 
@@ -417,14 +545,16 @@ div.sessions-box-login {
 	@include MQ(S) {
 		width: 90%;
 	}
-
+	@include MQ(M) {
+		width: 40%;
+	}
 	@include MQ(L) {
 		width: 40%;
 	}
 }
 
 /*----------------------------------------------------------------------------
-								            Media Queries
+								 Media Queries
 ------------------------------------------------------------------------------*/
 
 .hide-on-small {
@@ -433,7 +563,11 @@ div.sessions-box-login {
 		display: none;
 		position: absolute;
 	}
-
+	@include MQ(M) {
+		visibility: visible;;
+		display: inline-block;
+		position: relative;
+	}
 	@include MQ(L) {
 		visibility: visible;;
 		display: inline-block;
@@ -447,10 +581,405 @@ div.sessions-box-login {
 		display: block;
 		position: relative;
 	}
-
+	@include MQ(M) {
+		visibility: hidden;
+		display: none;
+		position: absolute;
+	}
 	@include MQ(L) {
 		visibility: hidden;
 		display: none;
 		position: absolute;
 	}
+}
+/*----------------------------------------------------------------------------
+								    Sub-nav
+------------------------------------------------------------------------------*/
+.articles-container {
+	position: relative;
+	@include MQ(S) {
+		width: 96%;
+		margin-left: 2%;
+	}
+	@include MQ(M) {
+		width:80%;
+		margin-left: 10%;
+	}
+	@include MQ(L) {
+		width:80%;
+		margin-left: 10%;
+	}
+}
+ul.sub-nav {
+	list-style: none;
+	a {
+		color: $gray-blue;
+		font-family: $book;
+		text-decoration: none;
+		&:hover {
+			color: $blue;
+		}
+	}
+
+	li {
+			display: inline-block;
+			float: left;
+			img {
+				@include transform(translateY(5px));
+				width: 28px;
+			}
+	}
+
+	@include MQ(S) {
+		position: fixed;
+		z-index: 10;
+		bottom: -20px;
+		background-color: white;
+		width: 100%;
+		height: 75px;
+		margin-top: 100px;
+		@include transform(translateX(-15px));
+		// @include center(x);
+		li {
+			width: 16.6%;
+			@include transform(translateY(15px));
+		}
+	}
+	@include MQ(M) {
+		position: relative;
+		margin-top: 75px;
+		width: 100%;
+		height: 65px;
+		background-color: rgba(255,255,255,0);
+		@include transform(translateX(0px));
+		li {
+			width: 16.6%;
+			@include transform(translateY(0px));
+		}
+	}
+	@include MQ(L) {
+		position: relative;
+		margin-top: 75px;
+		width: 100%;
+		height: 65px;
+		background-color: rgba(255,255,255,0);
+		@include transform(translateX(0px));
+		li {
+			width: 16.6%;
+			@include transform(translateY(0px));
+		}
+	}
+}
+/*----------------------------------------------------------------------------
+						       Grid-system
+------------------------------------------------------------------------------*/
+.row {
+	width: 100%;
+	height: auto;
+	position: relative;
+	clear: both;
+}
+.col-lg-4 {
+	position: relative;
+	display: inline-block;
+	float: left;
+	@include MQ(S) {
+		width: 100%;
+	}
+	@include MQ(M) {
+		width:33.3%;
+	}
+	@include MQ(L) {
+		width:33.3%;
+	}
+}
+/*----------------------------------------------------------------------------
+							   article-view
+------------------------------------------------------------------------------*/
+.img-container, .text-container {
+	width: 96%;
+	margin-left: 2%;
+}
+.img-container {
+	overflow: hidden;
+	position: relative;
+	min-height: 200px;
+	max-height: 300px;
+	height: 30vh;
+
+	img {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: auto;
+	}
+}
+
+.text-container {
+	h3.title {
+		font-family: $bold;
+		color: $black;
+		&:hover {
+			color: $blue;
+		}
+	}
+	p.category {
+		font-family: $light;
+		color:darken(#cccccc, 30%);
+		@include transform(translateY(-10px));
+	}
+	p.summary {
+		font-family: $light;
+		color:darken(#cccccc, 80%);
+		@include transform(translateY(-16px));
+	}
+}
+/*----------------------------------------------------------------------------
+						       social-links
+------------------------------------------------------------------------------*/
+ul.social-links {
+	list-style: none;
+	@include transform(translateX(-45px));
+	li {
+		display: inline-block;
+		@include transform(translateY(-23px));
+		float: left;
+		width: 22px;
+		color: #9EA0A9;
+		font-family: $light;
+		a:hover {
+			.st20{
+				fill: #2C4762;
+				stroke:#2C4762;
+				stroke-width:20;
+
+			}
+
+			.st21{
+				fill: #4099FF;
+				stroke:#4099FF;
+				stroke-width:20;
+
+			}
+
+			.st23 {
+				fill: #3B5998;
+				stroke:#3B5998;
+				stroke-width:20;
+
+			}
+			
+		}
+
+		span {
+			cursor: pointer;
+			&:hover {
+				.st10 {
+					fill: $error;
+					stroke:$error;
+					stroke-width:20;
+
+				}
+				
+			}
+		}
+
+		svg {
+			width: 16px;
+			&:hover {
+				fill: lighten(#9EA0A9, 15%);
+			}
+		}
+	}
+}
+/*----------------------------------------------------------------------------
+						       header article
+------------------------------------------------------------------------------*/
+.header-article {
+	width: 100%;
+	position: relative;
+	// min-height: 300px;
+	height: 47vh;
+	overflow: hidden;
+	margin-bottom: 50px;
+
+	img {
+		width: 60%;
+		margin-left: 1%;
+		float: left;
+		display: inline-block;
+	}
+
+	.header-text {
+		// background-color: $blue;
+		height: 100%;
+		width: 38%;
+		float: left;
+		display: inline-block;
+		padding: 0 0 0 10px;
+		margin-top: 0;
+		a {
+			// color: $black;
+		}
+		h1 {
+			@include transform(translateY(-25px));
+			font-family: $bold;
+			color: $black;
+			&:hover {
+				color: $blue;
+			}
+		}
+		p {
+			@include transform(translateY(-35px));
+			@include font-size(20px);
+			font-family: $light;
+			&.category {
+				color:darken(#cccccc, 30%);
+			}
+			&.summary {
+				color:darken(#cccccc, 80%);
+			}
+		}
+	}
+
+	@include MQ(S) {
+		display: none;
+		visibility: hidden;
+	}
+	@include MQ(M) {
+		display: none;
+		visibility: hidden;
+	}
+	@include MQ(L) {
+		display: block;
+		visibility: visible;
+	}
+
+	ul.social-links {
+		
+		li {
+			@include font-size(20px);
+			@include transform(translateY(-40px));
+			width: 25px;
+			svg {
+				width: 16px;
+				&.heart-icon {
+					width: 19px;
+				}
+			}
+		}
+	}
+}
+
+/*----------------------------------------------------------------------------
+						       header article
+------------------------------------------------------------------------------*/
+	
+.show-article {
+	position: relative;
+	float: left;
+	display: inline-block;
+	height: 100vh;
+	margin-top: 90px;
+	padding-left: 2%;
+	padding-right: 2%;
+
+	h1 {
+		width: 96%;
+		font-family: $bold;
+		color: $black;
+	}
+	.cover-container {
+		max-height: 355px;
+		max-height: 50vh;
+		overflow: hidden;
+	}
+
+	img {
+		width: 96%;
+	}
+
+	@include MQ(S) {
+		width: 100%;
+	}
+	@include MQ(M) {
+		width: 67%;
+	}
+	@include MQ(L) {
+		width: 67%;
+	}
+
+	p.category {
+		font-family: $light;
+		color:darken(#cccccc, 30%);
+	}
+	.content {
+		margin-bottom: 50px;
+		color: $black;
+	}
+}
+.social {
+	width: 100%;
+	position: relative;
+	height: 10px;
+	ul {
+		position: absolute;
+	}
+}
+
+
+.recommendations-right {
+	width: 31%;
+	float: left;
+	display: inline-block;
+	height: 100vh;
+	margin-top: 90px;
+	@include transform(translateY(-15px));
+
+
+	p.header-reco {
+		font-family: $bold;
+	}
+	
+	.reco-container {
+		width: 100%;
+		position: relative;
+		height: 60px;
+		margin-bottom: 20px;
+		.left-img {
+			float: left;
+			display: inline-block;
+			width: 40%;
+			height: 60px;
+			overflow: hidden;
+			position: relative;
+			img {
+				width: 110%;
+				position: absolute;
+			}
+		}
+
+		a {
+			color: $black;
+			&:hover {
+				color: $blue;
+			}
+		}
+
+		.right-text {
+			float: left;
+			height: 60px;
+			display: inline-block;
+			width: 59%;
+			position: relative;
+			padding: 0 0 0 1em;
+			h3 {
+				@include transform(translateY(-17px));
+				font-family: $bold;
+				@include font-size(15px);
+				left: 1em;
+			}
+		}
+	}
+
 }

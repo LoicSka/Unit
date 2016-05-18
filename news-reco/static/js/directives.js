@@ -6,7 +6,8 @@ app.directive('ensureUnique', function($http){
 				if (!n) return;
 				$http({
 					method: 'POST',
-					url: '/api/check/'+attrs.ensureUnique,
+					// url: '/api/check/'+attrs.ensureUnique,
+					url: SOURCE +attrs.ensureUnique,
 					data: {'field': attrs.ensureUnique}
 				}).success(function(data){
 					c.$setValidity('unique', data.isUnique);

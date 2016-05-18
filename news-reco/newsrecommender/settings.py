@@ -140,4 +140,4 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
 CORS_URLS_REGEX = r'^/api/.*$'
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ORIGIN_WHITELIST = ('localhost:8000')
+CORS_ORIGIN_WHITELIST = ('localhost:8000', 'http://7dc36e61.ngrok.io')
